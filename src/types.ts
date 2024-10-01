@@ -3,7 +3,7 @@
 export enum AuthorityType {
   CITY = "city",
   COUNTY = "county",
-  UTILITY = "Uuility",
+  UTILITY = "Utility",
   FEDERAL = "federal",
   STATE = "state",
   BANK = "bank",
