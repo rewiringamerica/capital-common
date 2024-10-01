@@ -1,24 +1,24 @@
 // Types for Financial Authorities and Loan Programs
 
 export enum AuthorityType {
-  CITY = "City",
-  COUNTY = "County",
-  UTILITY = "Utility",
-  FEDERAL = "Federal",
-  STATE = "State",
-  BANK = "Bank",
-  CREDIT_UNION = "Credit Union",
-  OTHER = "Other",
+  CITY = "city",
+  COUNTY = "county",
+  UTILITY = "Uuility",
+  FEDERAL = "federal",
+  STATE = "state",
+  BANK = "bank",
+  CREDIT_UNION = "credit_union",
+  OTHER = "other",
 }
 
 export enum ProjectType {
-  WEATHERIZATION = "weatherization",
-  HEATING_COOLING = "heating_cooling",
-  WATER_HEATER = "water_heater",
-  ELECTRICAL_PANEL_WIRING = "electrical_panel_wiring",
-  EV_AND_CHARGER = "ev_and_charger",
-  SOLAR = "solar",
-  ENERGY_AUDIT = "energy_audit",
+  WEATHERIZATION = "WEATHERIZATION",
+  HEATING_COOLING = "HEATING_COOLING",
+  WATER_HEATER = "WATER_HEATER",
+  ELECTRICAL_PANEL_WIRING = "ELECTRICAL_PANEL_WIRING",
+  EV_AND_CHARGER = "EV_AND_CHARGER",
+  SOLAR = "SOLAR",
+  ENERGY_AUDIT = "ENERGY_AUDIT",
 }
 
 export enum State {
@@ -88,13 +88,8 @@ export type Image = {
   url: string;
 };
 
-// TODO: do we want to keep or remove the created/updated fields?
 export type EligibleProjectType = {
-  id: number;
   type: ProjectType;
-  loanProgramId: number;
-  createdAt: Date;
-  updatedAt: Date;
 };
 
 export type FinancialAuthority = {
@@ -104,22 +99,23 @@ export type FinancialAuthority = {
   description?: string;
   state: State;
   city?: string;
-  imageId?: number;
-  createdAt: Date;
-  updatedAt: Date;
+  image_id?: number;
+  created_at: Date;
+  updated_at: Date;
 };
 
 export type LoanProgram = {
   id: number;
   name: string;
   description: string;
-  descriptionLangs?: JSON;
-  websiteUrl?: string;
-  financialAuthorityId: number;
-  eligibleProjectTypes: EligibleProjectType[];
+  description_langs?: JSON;
+  website_url?: string;
+  financial_authority_id: number;
+  financial_authority: FinancialAuthority;
+  eligible_project_types: EligibleProjectType[];
   state?: State;
-  isNational: boolean;
+  is_national: boolean;
   metadata?: JSON;
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
 };
