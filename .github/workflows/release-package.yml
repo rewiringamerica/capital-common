@@ -1,28 +1,40 @@
 name: Publish Package
 
 on:
-  release:
-    types: [created]
+    pull_request:
+    release:
+        types: [created]
 
 jobs:
-  build-and-publish:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18.x"
-          registry-url: https://npm.pkg.github.com/
+    build-and-publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: yarn install
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "18.x"
+                  registry-url: https://npm.pkg.github.com/
 
-      - name: Build package
-        run: yarn build
+            - name: Install dependencies
+              run: yarn install
 
-      - name: Publish to GitHub Packages
-        run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Build package
+              run: yarn build
+
+            - name: Get the release version
+              id: get_version
+              run: echo "::set-output name=version::$(echo ${GITHUB_REF#refs/tags/})"
+
+            - name: Update package.json with release version
+              run: |
+                  version=$(echo ${{ steps.get_version.outputs.version }} | sed 's/^v//')
+                  jq --arg version "$version" '.version = $version' package.json > package.tmp.json
+                  mv package.tmp.json package.json
+
+            - name: Publish to GitHub Packages
+              run: yarn publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
