@@ -108,14 +108,16 @@ export type LoanProgram = {
   id: number;
   name: string;
   description: string;
-  description_langs?: JSON;
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  description_langs?: any;
   website_url?: string;
   financial_authority_id: number;
   financial_authority: FinancialAuthority;
   eligible_project_types: EligibleProjectType[];
   state?: State;
   is_national: boolean;
-  metadata?: JSON;
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  metadata?: any;
   created_at: Date;
   updated_at: Date;
 };
