@@ -23,6 +23,11 @@ jobs:
             - name: Build package
               run: yarn build
 
+            - name: Configure Git author
+              run: |
+                  git config --global user.name "${{ github.event.release.author.login }}"
+                  git config --global user.email "${{ github.event.release.author.email }}"
+
             - name: Publish to GitHub Packages
               run: yarn publish --new-version ${{ github.event.release.tag_name }}
               env:
