@@ -97,11 +97,11 @@ export type FinancialAuthority = {
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	authority_type: any;
 	name: string;
-	description?: string;
+	description: string | null;
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	state: any;
-	city?: string;
-	image_id?: number;
+	city: string | null;
+	image_id: number | null;
 	created_at: Date;
 	updated_at: Date;
 };
