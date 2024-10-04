@@ -94,10 +94,12 @@ export type EligibleProjectType = {
 
 export type FinancialAuthority = {
 	id: number;
-	authority_type: AuthorityType;
+	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+	authority_type: any;
 	name: string;
 	description?: string;
-	state: State;
+	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+	state: any;
 	city?: string;
 	image_id?: number;
 	created_at: Date;
