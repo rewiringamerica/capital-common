@@ -23,17 +23,7 @@ jobs:
             - name: Build package
               run: yarn build
 
-            - name: Get the release version
-              id: get_version
-              run: echo "::set-output name=version::$(echo ${GITHUB_REF#refs/tags/})"
-
-            - name: Update package.json with release version
-              run: |
-                  version=$(echo ${{ steps.get_version.outputs.version }} | sed 's/^v//')
-                  jq --arg version "$version" '.version = $version' package.json > package.tmp.json
-                  mv package.tmp.json package.json
-
             - name: Publish to GitHub Packages
-              run: yarn publish
+              run: yarn publish --new-version ${{ github.event.release.tag_name }}
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
