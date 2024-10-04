@@ -117,7 +117,7 @@ export type LoanProgram = {
 	financial_authority: FinancialAuthority;
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	eligible_project_types: any;
-	state: State;
+	state: State | null;
 	is_national: boolean;
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	metadata: any;
