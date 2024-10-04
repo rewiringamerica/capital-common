@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Types for Financial Authorities and Loan Programs
 
 export enum AuthorityType {
@@ -94,11 +95,9 @@ export type EligibleProjectType = {
 
 export type FinancialAuthority = {
 	id: number;
-	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	authority_type: any;
 	name: string;
 	description: string | null;
-	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	state: any;
 	city: string | null;
 	image_id: number | null;
@@ -110,16 +109,13 @@ export type LoanProgram = {
 	id: number;
 	name: string;
 	description: string;
-	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	description_langs?: any;
 	website_url: string | null;
 	financial_authority_id: number;
 	financial_authority: FinancialAuthority;
-	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	eligible_project_types: any;
-	state: State | null;
+	state: any;
 	is_national: boolean;
-	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	metadata: any;
 	created_at: Date;
 	updated_at: Date;
