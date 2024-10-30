@@ -100,12 +100,12 @@ export type FinancialAuthority = {
 	id: number;
 	authority_type: any;
 	name: string;
-	description: string | null;
+	description?: string | null;
 	state: any;
 	city: string | null;
 	Image: { src: string };
-	created_at: Date;
-	updated_at: Date;
+	created_at?: Date;
+	updated_at?: Date;
 };
 
 export type LoanProgram = {
@@ -114,9 +114,9 @@ export type LoanProgram = {
 	description: string;
 	description_langs?: any;
 	website_url: string | null;
-	financial_authority_id: number;
+	financial_authority_id?: number;
 	financial_authority: FinancialAuthority;
-	eligible_project_types: any;
+	eligible_project_types: { type: ProjectType }[];
 	state: any;
 	is_national: boolean;
 	metadata: any;
