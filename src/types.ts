@@ -89,8 +89,7 @@ export enum State {
 }
 
 export type Image = {
-	id: number;
-	url: string;
+	src: string;
 };
 
 export type EligibleProjectType = {
@@ -104,7 +103,7 @@ export type FinancialAuthority = {
 	description: string | null;
 	state: any;
 	city: string | null;
-	image_id: number | null;
+	Image: { src: string };
 	created_at: Date;
 	updated_at: Date;
 };
