@@ -89,8 +89,7 @@ export enum State {
 }
 
 export type Image = {
-	id: number;
-	url: string;
+	src: string;
 };
 
 export type EligibleProjectType = {
@@ -99,28 +98,28 @@ export type EligibleProjectType = {
 
 export type FinancialAuthority = {
 	id: number;
-	authority_type: any;
+	authority_type: AuthorityType;
 	name: string;
-	description: string | null;
-	state: any;
+	description?: string | null;
+	state: State;
 	city: string | null;
-	image_id: number | null;
-	created_at: Date;
-	updated_at: Date;
+	Image: { src: string };
+	created_at?: Date;
+	updated_at?: Date;
 };
 
 export type LoanProgram = {
 	id: number;
 	name: string;
 	description: string;
-	description_langs?: any;
-	website_url: string | null;
-	financial_authority_id: number;
+	description_langs?: Record<string, string>;
+	website_url: string;
+	financial_authority_id?: number;
 	financial_authority: FinancialAuthority;
-	eligible_project_types: any;
-	state: any;
+	eligible_project_types: { type: ProjectType }[];
+	state: State;
 	is_national: boolean;
-	metadata: any;
+	metadata: Record<string, any>;
 	created_at: Date;
 	updated_at: Date;
 };
