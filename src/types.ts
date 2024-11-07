@@ -98,10 +98,10 @@ export type EligibleProjectType = {
 
 export type FinancialAuthority = {
 	id: number;
-	authority_type: any;
+	authority_type: AuthorityType;
 	name: string;
 	description?: string | null;
-	state: any;
+	state: State;
 	city: string | null;
 	Image: { src: string };
 	created_at?: Date;
@@ -112,14 +112,14 @@ export type LoanProgram = {
 	id: number;
 	name: string;
 	description: string;
-	description_langs?: any;
-	website_url: string | null;
+	description_langs?: Record<string, string>;
+	website_url: string;
 	financial_authority_id?: number;
 	financial_authority: FinancialAuthority;
 	eligible_project_types: { type: ProjectType }[];
-	state: any;
+	state: State;
 	is_national: boolean;
-	metadata: any;
+	metadata: Record<string, any>;
 	created_at: Date;
 	updated_at: Date;
 };
