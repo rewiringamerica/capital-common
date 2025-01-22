@@ -1,9 +1,8 @@
 name: Publish Package
 
-on:
-    pull_request:
-    release:
-        types: [created]
+on: [pull_request]
+    # release:
+    #     types: [created]
 
 jobs:
     build-and-publish:
