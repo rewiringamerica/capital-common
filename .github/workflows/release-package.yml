@@ -15,7 +15,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: "18.x"
-                  registry-url: https://npm.pkg.github.com/
+                  registry-url: https://registry.npmjs.org/
 
             - name: Install dependencies
               run: yarn install
@@ -29,6 +29,6 @@ jobs:
                   git config --global user.email "${{ github.event.release.author.email }}"
 
             - name: Publish to GitHub Packages
-              run: yarn publish --new-version ${{ github.event.release.tag_name }}
+              run: yarn publish --access public --new-version ${{ github.event.release.tag_name }}
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
