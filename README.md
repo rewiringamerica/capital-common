@@ -4,25 +4,11 @@ This package provides shared TypeScript types and possibly utilities for Financi
 
 ## Installation
 
-To install this package from GitHub Packages, you will need to authenticate using a GitHub Personal Access Token (PAT) with the `read:packages` scope.
+Run the following command to install the package:
 
-### Step-by-Step Installation Instructions:
-
-1. **Create a Personal Access Token (PAT)** with the `read:packages` permission. You can generate a new token from your [GitHub settings](https://github.com/settings/tokens). Recommended token expiration is 30 days, since this package probably won't have a ton of active development.
-
-2. **Add the Personal Access Token to Your Environment**:
-   Add the following line to your `.env` file (located in the root of your project; do not put quotes around the value):
-
-   ```
-   GITHUB_TOKEN=your_personal_access_token
-   ```
-
-3. **Install the Package**:
-   Run the following command to install the package:
-
-   ```bash
-   yarn add @rewiringamerica/capital-common
-   ```
+```bash
+yarn add @rewiringamerica/capital-common
+```
 
 ## Usage
 
