@@ -120,7 +120,7 @@ export type FinancialAuthority = {
 
 export type LoanProgram = {
   id: number;
-  loan_program_key?: string;
+  loan_program_key?: string | null;
   name: string;
   description: string;
   description_langs?: Record<string, string>;
