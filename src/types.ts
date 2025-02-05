@@ -12,6 +12,8 @@ export enum AuthorityType {
   OTHER = "other",
 }
 
+// NOTE: This list of enum values should be kept in sync with the values in the 'incentive_admin' repo.
+// File location: incentive_admin/prisma/schema/capital.prisma
 export enum ProjectType {
   WEATHERIZATION = "WEATHERIZATION",
   HEATING_COOLING = "HEATING_COOLING",
