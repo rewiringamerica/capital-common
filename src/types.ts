@@ -122,16 +122,16 @@ export type FinancialAuthority = {
 
 export type LoanProgram = {
   id: number;
-  loan_program_key?: string | null;
+  loan_program_key: string;
   name: string;
   description: string;
   description_langs?: Record<string, string>;
-  status?: LoanProgramStatus;
+  status: LoanProgramStatus;
   website_url: string;
   financial_authority_id?: number;
   financial_authority: FinancialAuthority;
   eligible_project_types: { type: ProjectType }[];
-  state: State;
+  state?: State;
   is_national: boolean;
   metadata: Record<string, any>;
   created_at: Date;
