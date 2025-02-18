@@ -120,6 +120,19 @@ export type FinancialAuthority = {
   updated_at?: Date;
 };
 
+export type LoanProgramTerms = {
+  id: number;
+  min_credit_score?: number;
+  max_debt_to_income?: number;     
+  min_loan_amount?: number;
+  max_loan_amount?: number;        
+  min_interest_rate?: number;      
+  max_interest_rate?: number;
+  max_repayment_months?: number;
+  created_at: Date;
+  updated_at: Date;
+}
+
 export type LoanProgram = {
   id: number;
   loan_program_key: string;
@@ -131,6 +144,8 @@ export type LoanProgram = {
   financial_authority_id?: number;
   financial_authority: FinancialAuthority;
   eligible_project_types: { type: ProjectType }[];
+  loan_program_terms_id?: number;
+  loan_program_terms?: LoanProgramTerms;
   state?: State;
   is_national: boolean;
   metadata: Record<string, any>;
