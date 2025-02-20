@@ -102,6 +102,8 @@ export enum State {
 
 export type Image = {
   src: string;
+  height: number;
+  width: number;
 };
 
 export type EligibleProjectType = {
