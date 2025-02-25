@@ -117,7 +117,7 @@ export type FinancialAuthority = {
   description?: string | null;
   state: State;
   city: string | null;
-  image: Image;
+  Image: Image;
   created_at?: Date;
   updated_at?: Date;
 };
