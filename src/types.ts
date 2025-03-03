@@ -150,7 +150,6 @@ export type LoanProgram = {
   loan_program_terms?: LoanProgramTerms;
   state?: State;
   is_national: boolean;
-  metadata: Record<string, any>;
   created_at: Date;
   updated_at: Date;
 };
