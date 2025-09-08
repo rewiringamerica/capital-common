@@ -4,7 +4,7 @@ updates:
     directories:
       - '**/*'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
     commit-message:
       prefix: 'chore(deps-yarn)'
     groups:
